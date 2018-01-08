@@ -1,8 +1,23 @@
 <div>
-    <h1>{{ movie.original_title }}</h1>
-    <p><img src="{{ posterUrl }}"></p>
-    <p>Average vote: {{ movie.vote_average }}</p>
-    <p>Relase date: {{ movie.release_date }}</p>
-    <p>Popularity: {{ movie.popularity }}</p>
-    <p>Votes: {{ movie.vote_count }}</p>
+    <div class="card">
+        <div class="card-body">
+                <div class="row">
+                        <div class="col-md-12">
+                            <div class="card-title">
+                                <h1>{{ movie.original_title }}</h1>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <p><img src="{{ posterUrl }}"  class="rounded mx-auto d-block"></p>
+                        </div>
+                        <div class="col-md-9">
+                            <p><strong>Average vote: </strong>{{ movie.vote_average }}</p>
+                            <p><strong>Relase date: </strong>{{ movie.release_date }}</p>
+                            <p><strong>Popularity: </strong>{{ movie.popularity }}</p>
+                            <p><strong>Votes: </strong>{{ movie.vote_count }}</p>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
 </div>
