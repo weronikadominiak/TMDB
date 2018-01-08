@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class StorageService {
-  private apiKey = '1bded0cf5ec81699b719a0ab217e461e';
+  private apiKey = '?api_key=1bded0cf5ec81699b719a0ab217e461e';
   private apiUrl = 'https://api.themoviedb.org/';
 
   constructor(
@@ -12,10 +12,10 @@ export class StorageService {
   ) { }
 
   getList() {
-    return this.http.get(this.apiUrl + '4/list/1?api_key=' + this.apiKey);
+    return this.http.get(this.apiUrl + '4/list/1' + this.apiKey);
   }
 
   getImageBaseUrl () {
-   return this.http.get(this.apiUrl + '3/configuration?api_key=' + this.apiKey);
+   return this.http.get(this.apiUrl + '3/configuration' + this.apiKey);
   }
 }
