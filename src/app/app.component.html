@@ -1,10 +1,9 @@
-<div *ngFor="let item of array; let i=index">
-  <ul>
-    <li>
-      <h1>{{array[i].original_title}}</h1>
-      <p><img src="{{imgBaseUrl + 'w154' + array[i].poster_path }}"></p>
-      <p>{{array[i].overview}}</p>
-      <p>{{array[i].vote_average}}</p>
-    </li>
-  </ul>
+<div class="container">
+  <div *ngFor="let movie of movies">
+    <ul>
+      <li>
+        <app-movie [movie]="movie"></app-movie>
+      </li>
+    </ul>
+  </div>
 </div>

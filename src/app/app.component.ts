@@ -8,9 +8,10 @@ import { Observable } from 'rxjs/Observable';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent implements OnInit {
-  array = [];
-  imgBaseUrl;
+  movies = [];
+
   constructor(
     private storage: StorageService,
   ) {}
@@ -19,16 +20,8 @@ export class AppComponent implements OnInit {
     this.storage.getList()
       .subscribe(
         (response) => {
-          this.array = response['results'];
-          console.log(this.array);
+          this.movies = response['results'];
         }
       );
-
-    this.imgBaseUrl = this.storage.getImageBaseUrl()
-    .subscribe(
-      (response) => {
-        this.imgBaseUrl = response['images'].base_url;
-       }
-    );
   }
 }

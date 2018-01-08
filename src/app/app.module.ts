@@ -4,10 +4,12 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { StorageService } from './storage.service';
+import { MovieComponent } from './movie/movie.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MovieComponent
   ],
   imports: [
     BrowserModule,
