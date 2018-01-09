@@ -1,7 +1,7 @@
 import { StorageService } from './storage.service';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-
+import { NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +11,7 @@ import { Observable } from 'rxjs/Observable';
 
 export class AppComponent implements OnInit {
   popularMovies = [];
+  filter= '';
 
   constructor(
     private storage: StorageService,
