@@ -11,8 +11,8 @@ export class StorageService {
     private http: HttpClient,
   ) { }
 
-  getList() {
-    return this.http.get(this.apiUrl + '4/list/1' + this.apiKey);
+  getList(category) {
+    return this.http.get(this.apiUrl + '3/movie/' + category + this.apiKey);
   }
 
   getImageBaseUrl () {
