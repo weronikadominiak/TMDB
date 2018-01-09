@@ -1,7 +1,10 @@
 <p>
   <strong>Genre: </strong>
-  <span *ngFor="let genre of movie.genres">
-    {{ genre.name }} ,
+  <span *ngFor="let genre of movie.genres; let i=index">
+    <span *ngIf="movie.genres.length -1 > i; else noComma">
+        {{ genre.name }}, 
+    </span>
+    <ng-template #noComma>{{ genre.name }}</ng-template>
   </span>
 </p>
 <p>
@@ -10,14 +13,20 @@
 </p>
 <p>
   <strong>Production countries: </strong>
-  <span *ngFor="let country of movie.production_countries">
-    {{ country.name }} ,
+  <span *ngFor="let country of movie.production_countries; let i=index">
+      <span *ngIf="movie.production_countries.length -1 > i; else noComma">
+          {{ country.name }}, 
+      </span>
+      <ng-template #noComma>{{ country.name }}</ng-template>
   </span>
 </p>
 <p>
   <strong>Production companies: </strong>
-  <span *ngFor="let company of movie.production_companies">
-    {{ company.name }} ,
+  <span *ngFor="let company of movie.production_companies; let i=index">
+      <span *ngIf="movie.production_companies.length -1 > i; else noComma">
+          {{ company.name }}, 
+      </span>
+      <ng-template #noComma>{{ company.name }}</ng-template>
   </span>
 </p>
 <p>
