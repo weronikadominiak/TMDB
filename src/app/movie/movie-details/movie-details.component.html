@@ -1,0 +1,27 @@
+<p>
+  <strong>Genre: </strong>
+  <span *ngFor="let genre of movie.genres">
+    {{ genre.name }} ,
+  </span>
+</p>
+<p>
+  <strong>Description: </strong>
+  {{ movie.overview }}
+</p>
+<p>
+  <strong>Production countries: </strong>
+  <span *ngFor="let country of movie.production_countries">
+    {{ country.name }} ,
+  </span>
+</p>
+<p>
+  <strong>Production companies: </strong>
+  <span *ngFor="let company of movie.production_companies">
+    {{ company.name }} ,
+  </span>
+</p>
+<p>
+    <strong> 
+    <a href="{{ imdbLink }}/{{ movie.imdb_id}}">Go to IMDB</a>
+    </strong>
+  </p>

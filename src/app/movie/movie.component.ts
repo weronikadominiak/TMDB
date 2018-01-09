@@ -8,8 +8,10 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class MovieComponent implements OnInit {
   @Input() movie;
+  movieDetails;
   imgBaseUrl;
   posterUrl: string;
+  display = false;
 
   constructor(
     private storage: StorageService,
@@ -21,6 +23,12 @@ export class MovieComponent implements OnInit {
       (response) => {
         this.imgBaseUrl = response['images'].base_url;
         this.posterUrl = this.imgBaseUrl + 'w154' + this.movie.poster_path;
+       }
+    );
+    this.movieDetails = this.storage.getList(this.movie.id)
+    .subscribe(
+      (response) => {
+        this.movieDetails = response;
        }
     );
   }

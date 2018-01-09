@@ -10,11 +10,15 @@
                         <div class="col-md-3">
                             <p><img src="{{ posterUrl }}"  class="rounded mx-auto d-block"></p>
                         </div>
-                        <div class="col-md-9">
+                        <div class="col-md-3">
                             <p><strong>Average vote: </strong>{{ movie.vote_average }}</p>
                             <p><strong>Relase date: </strong>{{ movie.release_date }}</p>
                             <p><strong>Popularity: </strong>{{ movie.popularity }}</p>
                             <p><strong>Votes: </strong>{{ movie.vote_count }}</p>
+                            <button class="btn btn-primary" (click)="display = !display">Details</button>
+                        </div>
+                        <div class="col-md-6" *ngIf="display">
+                            <app-movie-details [movie]="movieDetails"></app-movie-details>
                         </div>
                     </div>
                 </div>
