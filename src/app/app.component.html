@@ -3,6 +3,7 @@
         <form class="form-inline">
           <input [(ngModel)]="filter" name="search" class="form-control" type="search" placeholder="Find movie..." aria-label="Search">
           <button class="btn btn-info">Search</button>
+          <button class="btn btn-info" (click)="sortList()">Sort Alphabetically</button>
         </form>
       </nav>
   <div *ngFor="let movie of popularMovies | search:filter">

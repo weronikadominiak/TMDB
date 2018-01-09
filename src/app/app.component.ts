@@ -12,6 +12,7 @@ import { NgModel } from '@angular/forms';
 export class AppComponent implements OnInit {
   popularMovies = [];
   filter= '';
+  listSorted = false;
 
   constructor(
     private storage: StorageService,
@@ -24,5 +25,37 @@ export class AppComponent implements OnInit {
           this.popularMovies = response['results'];
         }
       );
+  }
+
+  sortList() {
+    if (!this.listSorted) {
+      this.listSorted = true;
+      this.popularMovies = this.popularMovies.sort(
+      (a, b) => {
+        a.title = a.title.toLowerCase();
+        b.title = b.title.toLowerCase();
+        if (a.title < b.title) {
+          return -1;
+        }
+        if (a.title > b.title) {
+          return 1;
+        }
+      return 0 ;
+      });
+    } else {
+      this.listSorted = false;
+      this.popularMovies = this.popularMovies.sort(
+        (a, b) => {
+          a.title = a.title.toLowerCase();
+          b.title = b.title.toLowerCase();
+          if (a.title > b.title) {
+            return -1;
+          }
+          if (a.title < b.title) {
+            return 1;
+          }
+        return 0 ;
+      });
+    }
   }
 }
