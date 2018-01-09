@@ -10,17 +10,17 @@ import { Observable } from 'rxjs/Observable';
 })
 
 export class AppComponent implements OnInit {
-  movies = [];
+  popularMovies = [];
 
   constructor(
     private storage: StorageService,
   ) {}
 
   ngOnInit() {
-    this.storage.getList()
+    this.storage.getList('popular')
       .subscribe(
         (response) => {
-          this.movies = response['results'];
+          this.popularMovies = response['results'];
         }
       );
   }
