@@ -20,7 +20,7 @@ export class StorageService {
 
   search(query) {
     query = this.convertToSlug(query);
-    return this.http.get(this.apiUrl + '3/search/movie/' + this.apiKey + '&query=' + query);
+    return this.http.get(this.apiUrl + '3/search/movie' + this.apiKey + '&query=' + query );
   }
 
   convertToSlug(string) {
