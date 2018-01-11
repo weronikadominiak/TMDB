@@ -12,6 +12,7 @@ export class MovieComponent implements OnInit {
   imgBaseUrl;
   posterUrl: string;
   display = false;
+  displayButton = 'Display details';
 
   constructor(
     private storage: StorageService,
@@ -31,5 +32,14 @@ export class MovieComponent implements OnInit {
         this.movieDetails = response;
        }
     );
+  }
+
+  changeButton() {
+    this.display = !this.display;
+    if (this.display === true) {
+      this.displayButton = 'Hide details';
+    } else {
+      this.displayButton = 'Display details';
+    }
   }
 }
