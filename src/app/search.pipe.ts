@@ -12,7 +12,7 @@ export class SearchPipe implements PipeTransform {
     }
     const resultArray = [];
     for (const movie of value) {
-      this.lowerTitle = movie.original_title.toLowerCase();
+      this.lowerTitle = movie.title.toLowerCase();
       if (this.lowerTitle.includes(filter.toLowerCase())) {
         resultArray.push(movie);
       }
