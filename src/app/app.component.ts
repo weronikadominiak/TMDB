@@ -28,6 +28,9 @@ export class AppComponent implements OnInit {
   }
 
   search(query) {
+    // if (query.length < 2) {
+    //  return alert('Min. 2 chars are required');
+    // }
     this.storage.search(query)
     .subscribe(
       (response) => {
