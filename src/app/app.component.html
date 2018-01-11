@@ -1,12 +1,12 @@
 <div class="container">
     <nav class="navbar navbar-light bg-light"  style="background-color: #2292e2;">
         <form class="form-inline">
-          <input [(ngModel)]="filter" name="search" class="form-control" type="search" placeholder="Find movie..." aria-label="Search">
+          <input [(ngModel)]="filter" (keyup.enter)="search(filter)" name="search" class="form-control" type="search" placeholder="Find movie..." aria-label="Search">
           <button class="btn btn-info">Search</button>
           <button class="btn btn-info" (click)="sortList()">Sort Alphabetically</button>
         </form>
       </nav>
-  <div *ngFor="let movie of popularMovies | search:filter">
+  <div *ngFor="let movie of popularMovies">
     <app-movie [movie]="movie"></app-movie>
   </div>
   <footer><a href="https://github.com/weronikafelczak" target="_blank">Weronika Felczak</a></footer>

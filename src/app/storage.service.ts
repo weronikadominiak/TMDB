@@ -1,6 +1,5 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders  } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
 
 @Injectable()
 export class StorageService {
@@ -15,7 +14,20 @@ export class StorageService {
     return this.http.get(this.apiUrl + '3/movie/' + category + this.apiKey);
   }
 
-  getImageBaseUrl () {
+  getImageBaseUrl() {
    return this.http.get(this.apiUrl + '3/configuration' + this.apiKey);
+  }
+
+  search(query) {
+    query = this.convertToSlug(query);
+    return this.http.get(this.apiUrl + '3/search/movie/' + this.apiKey + '&query=' + query);
+  }
+
+  convertToSlug(string) {
+    string = string.toLowerCase()
+      .replace(/[^a-z0-9 -]/g, '')
+      .replace(/\s+/g, '+')
+      .replace(/-+/g, '+');
+    return string;
   }
 }
