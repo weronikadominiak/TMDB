@@ -2,7 +2,7 @@
     <nav class="navbar navbar-light bg-light"  style="background-color: #2292e2;">
         <form class="form-inline">
           <input [(ngModel)]="filter" (keyup.enter)="search(filter)" name="search" class="form-control" type="search" placeholder="Find movie..." aria-label="Search">
-          <button class="btn btn-info">Search</button>
+          <button class="btn btn-info" (click)="search(filter)" >Search</button>
           <button class="btn btn-info" (click)="sortList()">Sort Alphabetically</button>
         </form>
       </nav>
