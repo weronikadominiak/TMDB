@@ -8,10 +8,10 @@
       type="search" placeholder="Find movie...">
       <button class="btn btn-info" (click)="search(filter)">Search</button>
       <div class ="ml-auto p-2">
-      <button class="btn btn-info" (click)="topRated()">Top Rated</button>
-      <button class="btn btn-info" (click)="upcoming()">Upcoming</button>
-      <button class="btn btn-info" (click)="nowPlaying()">Now Playing</button>
-      <button class="btn btn-info" (click)="popular()">Popular</button>
+      <button class="btn btn-info" (click)="getList('top_rated')">Top Rated</button>
+      <button class="btn btn-info" (click)="getList('upcoming')">Upcoming</button>
+      <button class="btn btn-info" (click)="getList('now_playing')">Now Playing</button>
+      <button class="btn btn-info" (click)="getList('popular')">Popular</button>
     </div>
     </form>
   </nav>

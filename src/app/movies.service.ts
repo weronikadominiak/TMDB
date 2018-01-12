@@ -7,7 +7,7 @@ export class MoviesService {
 
   constructor(  ) { }
 
-  sortSearchResult(list) {
+  sortByPopularity(list) {
     list.sort(
       (a, b) => {
         if (a.popularity > b.popularity) {

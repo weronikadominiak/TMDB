@@ -22,45 +22,17 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.popular();
+    this.getList('popular');
   }
 
-  popular() {
-    this.listName = 'Popular';
-    this.storage.getList('popular')
+  getList(category) {
+    this.listName = category[0].toUpperCase() + category.slice(1)
+    .replace(/_/g, ' ');
+    this.storage.getList(category)
     .subscribe(
       (response) => {
         this.moviesList = response['results'];
-      }
-    );
-  }
-
-  topRated() {
-    this.listName = 'Latest';
-    this.storage.getList('top_rated')
-    .subscribe(
-      (response) => {
-        this.moviesList = response['results'];
-      }
-    );
-  }
-
-  upcoming() {
-    this.listName = 'Upcoming';
-    this.storage.getList('upcoming')
-    .subscribe(
-      (response) => {
-        this.moviesList = response['results'];
-      }
-    );
-  }
-
-  nowPlaying() {
-    this.listName = 'Now playing';
-    this.storage.getList('now_playing')
-    .subscribe(
-      (response) => {
-        this.moviesList = response['results'];
+        this.sortByPopularity(this.moviesList);
       }
     );
   }
@@ -70,13 +42,13 @@ export class AppComponent implements OnInit {
     .subscribe(
       (response) => {
         this.moviesList = response['results'];
-        this.sortSearchResult(this.moviesList);
+        this.sortByPopularity(this.moviesList);
       }
     );
   }
 
-  sortSearchResult(list) {
-    this.movies.sortSearchResult(list);
+  sortByPopularity(list) {
+    this.movies.sortByPopularity(list);
     }
 
   sortList() {
