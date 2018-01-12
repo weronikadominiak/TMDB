@@ -35,9 +35,24 @@ export class AppComponent implements OnInit {
     .subscribe(
       (response) => {
         this.popularMovies = response['results'];
+        this.sortSearchResult(this.popularMovies);
       }
     );
   }
+
+  sortSearchResult(list) {
+    list.sort(
+      (a, b) => {
+        if (a.popularity > b.popularity) {
+          return -1;
+        }
+        if (a.popularity < b.popularity) {
+          return 1;
+        }
+      return 0 ;
+      });
+    }
+
 
   sortList() {
     if (!this.listSorted) {
