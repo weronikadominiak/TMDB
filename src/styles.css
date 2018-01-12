@@ -1,14 +1,20 @@
 body {
-    background-color: rgb(30, 30, 31);
+    background-color: rgb(0, 0, 14);
+}
+
+nav {
+    background: linear-gradient( #2292e2, #0161a7);;
+    min-height: 60px;
 }
 
 .container {
-    background-color: rgb(201, 201, 201);
+    background-color: #daecee;
 }
 
 .card {
     margin: 0px 0px 20px 0px;
     padding: 10px;
+    box-shadow: 0px 4px 14px 2px #94a0a1;
 }
 
 footer {
