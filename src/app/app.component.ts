@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { NgModel } from '@angular/forms';
 import { MoviesService } from './movies.service';
+import { PACKAGE_ROOT_URL } from '@angular/core/src/application_tokens';
 
 @Component({
   selector: 'app-root',
@@ -12,8 +13,8 @@ import { MoviesService } from './movies.service';
 
 export class AppComponent implements OnInit {
   moviesList = [];
+  listName: string;
   filter= '';
-
 
   constructor(
     private storage: StorageService,
@@ -21,7 +22,42 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.popular();
+  }
+
+  popular() {
+    this.listName = 'Popular';
     this.storage.getList('popular')
+    .subscribe(
+      (response) => {
+        this.moviesList = response['results'];
+      }
+    );
+  }
+
+  topRated() {
+    this.listName = 'Latest';
+    this.storage.getList('top_rated')
+    .subscribe(
+      (response) => {
+        this.moviesList = response['results'];
+      }
+    );
+  }
+
+  upcoming() {
+    this.listName = 'Upcoming';
+    this.storage.getList('upcoming')
+    .subscribe(
+      (response) => {
+        this.moviesList = response['results'];
+      }
+    );
+  }
+
+  nowPlaying() {
+    this.listName = 'Now playing';
+    this.storage.getList('now_playing')
     .subscribe(
       (response) => {
         this.moviesList = response['results'];

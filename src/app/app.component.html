@@ -1,15 +1,22 @@
 <div class="container">
   <nav class="navbar navbar-light bg-light">
-    <form class="form-inline d-flex justify-content-start">
+    <form class="form-inline">
       <input [(ngModel)]="filter" 
       (keyup.enter)="search(filter)"
       name="search"
       class="form-control"
       type="search" placeholder="Find movie...">
       <button class="btn btn-info" (click)="search(filter)">Search</button>
-      <button class="btn btn-info ml-auto p-2"(click)="sortList()">Sort Alphabetically</button>
+      <div class ="ml-auto p-2">
+      <button class="btn btn-info" (click)="topRated()">Top Rated</button>
+      <button class="btn btn-info" (click)="upcoming()">Upcoming</button>
+      <button class="btn btn-info" (click)="nowPlaying()">Now Playing</button>
+      <button class="btn btn-info" (click)="popular()">Popular</button>
+    </div>
     </form>
   </nav>
+  <h1 class="d-flex ml-auto p-2">{{ listName }} movies:
+  <button class="btn btn-info d-flex ml-auto p-2"(click)="sortList()">Sort Alphabetically</button></h1>
   <div *ngFor="let movie of moviesList">
     <app-movie [movie]="movie"></app-movie>
   </div>
