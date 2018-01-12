@@ -8,8 +8,8 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class MovieComponent implements OnInit {
   @Input() movie;
-  movieDetails;
-  imgBaseUrl;
+  movieDetails = {};
+  imgBaseUrl: string;
   posterUrl: string;
   display = false;
   displayButton = 'Display details';
@@ -19,14 +19,15 @@ export class MovieComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.imgBaseUrl = this.storage.getImageBaseUrl()
+    this.storage.getImageBaseUrl()
     .subscribe(
       (response) => {
         this.imgBaseUrl = response['images'].base_url;
         this.posterUrl = this.imgBaseUrl + 'w154' + this.movie.poster_path;
        }
     );
-    this.movieDetails = this.storage.getList(this.movie.id)
+
+    this.storage.getList(this.movie.id)
     .subscribe(
       (response) => {
         this.movieDetails = response;

@@ -8,6 +8,7 @@ import { StorageService } from './storage.service';
 import { MovieComponent } from './movie/movie.component';
 import { MovieDetailsComponent } from './movie/movie-details/movie-details.component';
 import { SearchPipe } from './search.pipe';
+import { MoviesService } from './movies.service';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { SearchPipe } from './search.pipe';
   ],
   providers: [
     StorageService,
+    MoviesService,
   ],
   bootstrap: [AppComponent]
 })

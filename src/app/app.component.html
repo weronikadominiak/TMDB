@@ -10,7 +10,7 @@
       <button class="btn btn-info ml-auto p-2"(click)="sortList()">Sort Alphabetically</button>
     </form>
   </nav>
-  <div *ngFor="let movie of popularMovies">
+  <div *ngFor="let movie of moviesList">
     <app-movie [movie]="movie"></app-movie>
   </div>
   <footer>
