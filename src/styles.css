@@ -3,8 +3,11 @@ body {
 }
 
 nav {
-    background: linear-gradient( #2292e2, #0161a7);;
+    background: linear-gradient( #2292e2, #0161a7);
     min-height: 60px;
+}
+nav a{
+    color: #daecee;
 }
 
 .container {

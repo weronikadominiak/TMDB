@@ -1,25 +1,18 @@
 <div class="container">
-  <nav class="navbar navbar-light bg-light">
-    <form class="form-inline">
+  <nav class="navbar bg-dark">
+     <a class="nav-link" [routerLink]="['top_rated']">Top Rated</a>
+      <a class="nav-link" [routerLink]="['upcoming']">Upcoming</a>
+      <a class="nav-link" [routerLink]="['now_playing']">Now Playing</a>
+      <a class="nav-link" [routerLink]="['popular']">Popular</a>
+      <form class="form-inline my-2 my-lg-0">
       <input [(ngModel)]="filter" 
-      (keyup.enter)="search(filter)"
       name="search"
       class="form-control"
       type="search" placeholder="Find movie...">
-      <button class="btn btn-info" (click)="search(filter)">Search</button>
-      <div class ="ml-auto p-2">
-      <button class="btn btn-info" (click)="getList('top_rated')">Top Rated</button>
-      <button class="btn btn-info" (click)="getList('upcoming')">Upcoming</button>
-      <button class="btn btn-info" (click)="getList('now_playing')">Now Playing</button>
-      <button class="btn btn-info" (click)="getList('popular')">Popular</button>
-    </div>
+      <button class="btn btn-info">Search</button>
     </form>
   </nav>
-  <h1 class="d-flex ml-auto p-2">{{ listName }} movies:
-  <button class="btn btn-info d-flex ml-auto p-2"(click)="sortList()">Sort Alphabetically</button></h1>
-  <div *ngFor="let movie of moviesList">
-    <app-movie [movie]="movie"></app-movie>
-  </div>
+    <router-outlet></router-outlet>
   <footer>
     <a href="https://github.com/weronikafelczak" target="_blank">Weronika Felczak</a>
   </footer>

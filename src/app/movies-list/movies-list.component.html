@@ -1,0 +1,5 @@
+<h1 class="d-flex ml-auto p-2">{{ listName }} movies:
+  <button class="btn btn-info d-flex ml-auto p-2"(click)="sortList()">Sort Alphabetically</button></h1>
+<div *ngFor="let movie of moviesList">
+  <app-movie [movie]="movie"></app-movie>
+</div>
