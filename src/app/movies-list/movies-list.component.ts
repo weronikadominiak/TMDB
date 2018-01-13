@@ -23,6 +23,7 @@ export class MoviesListComponent implements OnInit {
     movies.searchFilterEmited$.subscribe(
       filter => {
           this.search(filter);
+          this.listName = 'Search results of: ' + filter;
       });
   }
 
