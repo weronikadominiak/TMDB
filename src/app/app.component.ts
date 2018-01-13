@@ -1,9 +1,8 @@
-import { StorageService } from './storage.service';
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+
 import { NgModel } from '@angular/forms';
 import { MoviesService } from './movies.service';
-import { ActivatedRoute, Params } from '@angular/router';
+
 
 @Component({
   selector: 'app-root',
@@ -13,7 +12,14 @@ import { ActivatedRoute, Params } from '@angular/router';
 
 export class AppComponent implements OnInit {
   filter= '';
+  constructor(
+    private movies: MoviesService,
+  ) {}
   ngOnInit() {
 
+  }
+
+  search(filter) {
+    this.movies.emitChange(filter);
   }
 }

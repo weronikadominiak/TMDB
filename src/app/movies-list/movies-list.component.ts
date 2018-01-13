@@ -19,11 +19,15 @@ export class MoviesListComponent implements OnInit {
     private storage: StorageService,
     private movies: MoviesService,
     private route: ActivatedRoute,
-  ) {}
+  ) {
+    movies.searchFilterEmited$.subscribe(
+      filter => {
+          this.search(filter);
+      });
+  }
 
   ngOnInit() {
     this.getList('popular');
-    console.log('hallo');
     this.route.params
     .subscribe(
       (params: Params) => {

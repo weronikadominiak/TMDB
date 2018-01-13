@@ -18,10 +18,11 @@
       </div>
       <form class="form-inline ml-auto">
           <input [(ngModel)]="filter" 
+          (keyup.enter)="search(filter)"
           name="search"
           class="form-control"
           type="search" placeholder="Find movie...">
-          <button class="btn btn-info">Search</button>
+          <button class="btn btn-info" (click)="search(filter)">Search</button>
         </form>
     </nav>
     <router-outlet></router-outlet>

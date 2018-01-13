@@ -1,11 +1,18 @@
 import { Injectable } from '@angular/core';
 import { StorageService } from './storage.service';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class MoviesService {
   listSorted = false;
 
   constructor(  ) { }
+
+  private searchFilter = new Subject<any>();
+  searchFilterEmited$ = this.searchFilter.asObservable();
+  emitChange(change: any) {
+      this.searchFilter.next(change);
+  }
 
   sortByPopularity(list) {
     list.sort(
