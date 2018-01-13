@@ -12,7 +12,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class MoviesListComponent implements OnInit {
   moviesList = [];
-  listName: string;
+  listName = 'popular';
 
 
   constructor(
@@ -28,23 +28,26 @@ export class MoviesListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getList('popular');
     this.route.params
     .subscribe(
       (params: Params) => {
+        if (params.category === undefined) {
+          this.getList('popular');
+        } else {
         this.getList(params.category);
+        }
       }
     );
   }
 
   getList(category) {
-    this.listName = category[0].toUpperCase() + category.slice(1)
-    .replace(/_/g, ' ');
     this.storage.getList(category)
     .subscribe(
       (response) => {
         this.moviesList = response['results'];
         this.sortByPopularity(this.moviesList);
+        this.listName = category[0].toUpperCase() + category.slice(1)
+        .replace(/_/g, ' ');
       }
     );
   }
