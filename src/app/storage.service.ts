@@ -12,7 +12,6 @@ export class StorageService {
   ) { }
 
   getList(category) {
-    console.log("halo")
     return this.http.get(this.apiUrl + '3/movie/' + category + this.apiKey);
   }
 
@@ -21,7 +20,6 @@ export class StorageService {
   }
 
   search(query) {
-    console.log("sercz")
     query = this.convertToSlug(query);
     return this.http.get(this.apiUrl + '3/search/movie' + this.apiKey + '&query=' + query );
   }
