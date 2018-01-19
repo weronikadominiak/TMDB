@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { StorageService } from '../../storage.service';
 
 @Component({
   selector: 'app-movie-details',
@@ -10,8 +11,15 @@ export class MovieDetailsComponent implements OnInit {
   imdbLink = 'http://www.imdb.com/title';
 
   constructor(
+    private storage: StorageService,
   ) { }
 
   ngOnInit() {
+    this.storage.getList(this.movie.id)
+    .subscribe(
+      (response) => {
+        this.movie = response;
+       }
+    );
   }
 }

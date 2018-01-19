@@ -5,20 +5,23 @@ import { Injectable } from '@angular/core';
 export class StorageService {
   private apiKey = '?api_key=1bded0cf5ec81699b719a0ab217e461e';
   private apiUrl = 'https://api.themoviedb.org/';
+  imageBaseurl = 'http://image.tmdb.org/t/p/';
 
   constructor(
     private http: HttpClient,
   ) { }
 
   getList(category) {
+    console.log("halo")
     return this.http.get(this.apiUrl + '3/movie/' + category + this.apiKey);
   }
 
   getImageBaseUrl() {
-   return this.http.get(this.apiUrl + '3/configuration' + this.apiKey);
+   return this.imageBaseurl;
   }
 
   search(query) {
+    console.log("sercz")
     query = this.convertToSlug(query);
     return this.http.get(this.apiUrl + '3/search/movie' + this.apiKey + '&query=' + query );
   }

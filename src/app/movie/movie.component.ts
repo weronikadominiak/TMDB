@@ -19,23 +19,11 @@ export class MovieComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.storage.getList(this.movie.id)
-    .subscribe(
-      (response) => {
-        this.movieDetails = response;
-       }
-    );
-
     if (this.movie.poster_path === null) {
       this.posterUrl = 'http://via.placeholder.com/154x218?text=Not+avaliable';
     } else {
-      this.storage.getImageBaseUrl()
-      .subscribe(
-        (response) => {
-          this.imgBaseUrl = response['images'].base_url;
-          this.posterUrl = this.imgBaseUrl + 'w154' + this.movie.poster_path;
-         }
-      );
+      this.imgBaseUrl = this.storage.getImageBaseUrl()
+      this.posterUrl = this.imgBaseUrl + 'w154' + this.movie.poster_path;
     }
   }
 
