@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 export class StorageService {
   private apiKey = '?api_key=1bded0cf5ec81699b719a0ab217e461e';
   private apiUrl = 'https://api.themoviedb.org/';
-  imageBaseurl = 'http://image.tmdb.org/t/p/';
+  imageBaseurl = 'https://image.tmdb.org/t/p/';
 
   constructor(
     private http: HttpClient,
