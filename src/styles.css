@@ -1,13 +1,10 @@
 body {
-    background-color: rgb(0, 0, 14);
+    background-color: rgb(255, 255, 255);
 }
 
 nav {
     background: linear-gradient( #2292e2, #0161a7);
-}
-
-.container {
-    background-color: #daecee;
+    font-weight: 400;
 }
 
 .card {
